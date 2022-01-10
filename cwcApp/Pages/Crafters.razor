@@ -20,11 +20,28 @@ else
                 <p class="card-text">@crafter.description</p>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">@crafter.twitter</li>
-                <li class="list-group-item">@crafter.twitch</li>
+                @if(@crafter.twitter != null)
+                {
+                    <li class="list-group-item">@crafter.twitter</li>
+                }
+                @if(@crafter.twitch != null)
+                {
+                    <li class="list-group-item">@crafter.twitch</li>
+                }                
+                @if(@crafter.youtube != null)
+                {
+                    <li class="list-group-item">@crafter.youtube</li>
+                }
+                @if(@crafter.twitter != null)
+                {
+                    <li class="list-group-item">@crafter.email</li>
+                }
             </ul>
             <div class="card-body">
-                <a href="@crafter.website" class="card-link">@crafter.website</a>
+                @if(@crafter.website != null)
+                {
+                    <a href="@crafter.website" class="card-link">@crafter.website</a>
+                }
                 <a href="#" class="card-link">Link to Crafter on Marketplace?</a>
             </div>
 
