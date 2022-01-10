@@ -1,0 +1,50 @@
+﻿@page "/crafters"
+@inject HttpClient Http
+
+<div class="d-flex justify-content-center">
+    <p>Crafting with Color Banner Image here</p>
+</div>
+<br />
+
+@if (listofcrafters == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    @foreach (var crafter in listofcrafters)
+    {
+        <div class="card">
+            <h3 class="card-header">
+                @crafter.username
+            </h3>
+            <div class="card-body">
+                <p class="card-text">@crafter.description</p>
+            </div>
+        </div>
+        <br />
+    }
+}
+
+@code {
+    private functionCrafters[] listofcrafters;
+
+    protected override async Task OnInitializedAsync()
+    {
+        listofcrafters = await Http.GetFromJsonAsync<functionCrafters[]>("https://cwcfunctions.azurewebsites.net/api/getCrafters");
+    }
+
+    public class functionCrafters
+    {
+        public string id { get; set; }
+        public string username { get; set; }
+        public string description { get; set; }
+        public string? firstname { get; set; }
+        public string? lastname { get; set; }
+        public string? twitch { get; set; }
+        public string? youtube { get; set; }
+        public string? twitter { get; set; }
+        public string? email { get; set; }
+        public string? website { get; set; }
+    }
+}
