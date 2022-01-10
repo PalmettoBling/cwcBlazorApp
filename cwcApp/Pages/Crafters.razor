@@ -15,12 +15,19 @@ else
     @foreach (var crafter in listofcrafters)
     {
         <div class="card">
-            <h3 class="card-header">
-                @crafter.username
-            </h3>
             <div class="card-body">
+                <h5 class="card-title">@crafter.username</h5>
                 <p class="card-text">@crafter.description</p>
             </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">@crafter.twitter</li>
+                <li class="list-group-item">@crafter.twitch</li>
+            </ul>
+            <div class="card-body">
+                <a href="@crafter.website" class="card-link">@crafter.website</a>
+                <a href="#" class="card-link">Link to Crafter on Marketplace?</a>
+            </div>
+
         </div>
         <br />
     }

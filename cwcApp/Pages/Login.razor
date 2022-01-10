@@ -1,0 +1,20 @@
+﻿@page "/Login"
+
+<PageTitle>Login</PageTitle>
+
+<h1>Login</h1>
+
+<p>This page will be to login and authenticate to review submissions.</p>
+
+<p role="status">Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}
